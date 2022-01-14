@@ -16,26 +16,26 @@
 </head>
 
 <body>
-  
+
     <header>
       <div class="nav-bar">
-        <a href="/" class="logo">BE HUMAN</a>
+        <a href="{{url('/')}}" class="logo">BE HUMAN</a>
         <input class="menu-btn" type="checkbox" id="menu-btn" />
         <label class="menu-icon" for="menu-btn"><span class="navicon"></span></label>
         <ul class="menu">
-          
-          <li><a class="nav-link" href="/daftarprogram">Donasi</a></li>          
-          <li><a class="nav-link" href="/konfirmasi">Konfirmasi Pendonasian</a></li>
+
+          <li><a class="nav-link" href="{{url('/')}}/daftarprogram">Donasi</a></li>
+          <li><a class="nav-link" href="{{url('/')}}/konfirmasi">Konfirmasi Pendonasian</a></li>
           @if (Auth::check())
             @if (Auth::user()->role == 1)
-              <li><a href="/admin/dashboard" class="btn-admin nav-link">Kelola Admin</a></li> 
+              <li><a href="{{url('/')}}/admin/dashboard" class="btn-admin nav-link">Kelola Admin</a></li>
             @else
-              <li><a href="/middle" class="btn-dashboard nav-link">Dashboard</a></li>
-            @endif          
+              <li><a href="{{url('/')}}/middle" class="btn-dashboard nav-link">Dashboard</a></li>
+            @endif
           @endif
           @if (!Auth::check())
-          <li><a class="nav-link" href="/login">Login</a></li>
-          <li><a class="nav-link" href="/register">Daftar</a></li> 
+          <li><a class="nav-link" href="{{url('/')}}/login">Login</a></li>
+          <li><a class="nav-link" href="{{url('/')}}/register">Daftar</a></li>
           @else
           <li><a class="btn-logout" href="{{ route('logout') }}"
             onclick="event.preventDefault();
@@ -45,7 +45,7 @@
           </form>
           @endif
           </li>
-          
+
 
 
         </ul>
@@ -71,7 +71,7 @@
     }
   })
 
-</script> 
+</script>
 @include('sweetalert::alert')
 
 

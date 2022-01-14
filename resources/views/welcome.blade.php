@@ -7,13 +7,13 @@
 <link rel="stylesheet" href="{{asset('front-assets/css/index.css')}}">
 @endsection
 
-@section('content') 
+@section('content')
 
         <div class="jumbotron-fluid"></div>
 
         <div class="aksi">
             <p>Galang Dana untuk Hal yang Anda Perjuangkan</p>
-            <a href="/program" class="btn btn-galang">Galang Dana Sekarang</a>
+            <a href="{{url('/')}}//program" class="btn btn-galang">Galang Dana Sekarang</a>
         </div>
 
         <div class="info">
@@ -51,9 +51,9 @@
                     @foreach ($programs as $program)
                     <div class="col-lg-4 col-md-6 pl-4">
                         <div class="card">
-                            <a href="/donasi/{{$program->id}}">
+                            <a href="{{url('/')}}/donasi/{{$program->id}}">
                             <img src="{{$program->getFoto()}}" alt="Program Image">
-                            
+
                             <div class="container mt-3">
                                     @if ($program->donation_collected >= $program->donation_target)
                                         <div class="badge badge-success">Terdanai <i class="fa fa-check"></i></div>
@@ -78,7 +78,7 @@
                                         </div>
                                     </div>
                                     </div>
-                            
+
                                 </a>
                                 </div>
                             </div>
@@ -87,7 +87,7 @@
             </div>
 
         <div class="foot">
-            <a href="/daftarprogram" class="btn btn-more">Program Lainnya</a>
+            <a href="{{url('/')}}/daftarprogram" class="btn btn-more">Program Lainnya</a>
         </div>
     </section>
 
@@ -98,15 +98,15 @@
                 </span>
                 <hr>
             </div>
-    
+
             <div class="content">
                     <div class="row">
                         @foreach ($programsNew as $newProgram)
                         <div class="col-lg-4 pl-4">
-                            <a href="/donasi/{{$newProgram->id}}">
+                            <a href="{{url('/')}}//donasi/{{$newProgram->id}}">
                             <div class="card">
                                 <img src="{{$newProgram->getFoto()}}" alt="Program Image">
-    
+
                                 <div class="container mt-3">
                                     @if ($newProgram->donation_collected >= $newProgram->donation_target)
                                         <div class="badge badge-success">Terdanai <i class="fa fa-check"></i></div>
@@ -123,7 +123,7 @@
                                             <span>Berakhir Pada</span><p>{{$newProgram->time_is_up}}</p>
                                             </div>
                                         </div>
-    
+
                                         <div class="dana">
                                             <div class="container">
                                             <span>Terkumpul</span><p>@if ($newProgram->donation_collected == 0)
@@ -141,13 +141,13 @@
                         @endforeach
                     </div>
                 </div>
-    
+
             <div class="foot">
-                <a href="/daftarprogram" class="btn btn-more">Program Lainnya</a>
+                <a href="{{url('/')}}/daftarprogram" class="btn btn-more">Program Lainnya</a>
             </div>
         </section>
 
-@endsection 
+@endsection
 @section('script')
     <script>
         var jumboHeight = $('.jumbotron-fluid').outerHeight();
